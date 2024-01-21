@@ -1,0 +1,18 @@
+@import "primeicons/primeicons.css";
+html,
+body {
+  height: 100%;
+  background-color: #efeef3;
+}
+
+*::selection {
+  color: rgb(228, 242, 255);
+  background-color: #37469c;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+.bg-matprimary {
+  background-color: #353d69;
+}

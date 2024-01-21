@@ -1,0 +1,22 @@
+<mat-toolbar color="primary" class="mat-elevation-z7 navbar">
+  <a class="nav" mat-flat-button color="primary" routerLink="/products">
+    <i class="pi pi-home"></i>
+    Inicio
+  </a>
+
+
+  <a mat-flat-button color="primary" routerLink="agregar" class="bigBtn">
+    <mat-icon>add</mat-icon>
+    Agregar Producto
+  </a>
+
+  <div class="spacer"></div>
+
+  <p class="m-3 fw-normal fs-5">{{ currentUser?.email }}</p>
+
+  <a mat-flat-button (click)="onLogout()" class="sesion">
+    <mat-icon>logout</mat-icon>
+    <span>Cerrar Sesion</span>
+  </a>
+
+</mat-toolbar>

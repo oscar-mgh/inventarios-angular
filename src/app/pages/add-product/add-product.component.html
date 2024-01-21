@@ -1,0 +1,48 @@
+<h2 class="text-center my-3 fs-3">Agregar producto</h2>
+
+<div class="container">
+  <div class="mat-elevation-z9">
+    <mat-card class="card mt-3">
+      <form class="example-form" [formGroup]="addProductForm" (ngSubmit)="saveProduct()">
+        <mat-form-field class="full-width">
+          <mat-label>Descripcion del producto</mat-label>
+          <input matInput formControlName="description" />
+
+          @if (addProductForm.controls['description'].getError('required')) {
+          <mat-error>Este campo es requerido</mat-error>
+          }
+          @if (addProductForm.controls['description'].getError('minlength')) {
+          <mat-error>La descripcion es demasiado corta</mat-error>
+          }
+        </mat-form-field>
+
+        <mat-form-field class="full-width">
+          <mat-label>Precio</mat-label>
+          <input type="number" min="0" matInput formControlName="price" />
+
+          @if (addProductForm.controls['price'].getError('required')) {
+          <mat-error>Este campo es requerido</mat-error>
+          }
+        </mat-form-field>
+
+        <mat-form-field class="full-width">
+          <mat-label>Stock</mat-label>
+          <input type="number" min="0" matInput formControlName="stock" />
+
+          @if (addProductForm.controls['stock'].getError('required')) {
+          <mat-error>Este campo es requerido</mat-error>
+          }
+          @if (addProductForm.controls['stock'].getError('min')) {
+          <mat-error>Intenta agregando al menos un producto</mat-error>
+          }
+        </mat-form-field>
+
+        <div class="d-flex justify-content-between mt-2">
+          <button mat-raised-button color="primary" type="submit">
+            <mat-icon>save</mat-icon>Guardar
+          </button>
+        </div>
+      </form>
+    </mat-card>
+  </div>
+</div>

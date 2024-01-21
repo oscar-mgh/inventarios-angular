@@ -1,0 +1,72 @@
+<mat-card class="d-block w-50 mx-auto">
+  <form class="p-4" autocomplete="off" [formGroup]="registerForm" (ngSubmit)="register()">
+    <h3 class="text-center fs-3 mb-3"> Crear una cuenta </h3>
+
+    <div>
+      <mat-form-field class="w-100 mt-4">
+        <mat-label>Nombre</mat-label>
+        <input matInput type="text" formControlName="fullName" placeholder="Nombre apellido" />
+
+        @if (registerForm.controls['fullName'].getError('required')) {
+        <mat-error>Este campo es requerido</mat-error>
+        }
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field class="w-100 mt-4">
+        <mat-label>Correo</mat-label>
+        <input matInput type="email" formControlName="email" placeholder="correo@email.com" />
+
+        @if (registerForm.controls['email'].getError('required')) {
+        <mat-error>Este campo es requerido</mat-error>
+        }
+
+        @if (registerForm.controls['email'].getError('pattern')) {
+        <mat-error>El correo es invalido</mat-error>
+        }
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field class="w-100 mt-4">
+        <mat-label>Contraseña</mat-label>
+        <input matInput type="password" formControlName="password" />
+
+        @if (registerForm.controls['password'].getError('required')) {
+        <mat-error>Este campo es requerido</mat-error>
+        }
+        @if (registerForm.controls['password'].getError('pattern')) {
+        <mat-error>La contraseña debe tener al menos una mayuscula y un numero, tambien al menos 8
+          caracteres</mat-error>
+        }
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field class="w-100 mt-4">
+        <mat-label>Contraseña</mat-label>
+        <input matInput type="password" formControlName="password2" />
+
+        @if (registerForm.controls['password2'].getError('required')) {
+        <mat-error>Este campo es requerido</mat-error>
+        }
+        @if (registerForm.controls['password2'].errors) {
+        <mat-error>Las contraseñas deben ser iguales</mat-error>
+        }
+      </mat-form-field>
+    </div>
+
+    <div class="d-flex justify-content-between align-items-center mt-3">
+      <button mat-raised-button color="accent" type="submit" [disabled]="registerForm.invalid">
+        Crear
+      </button>
+
+      <div class="flex-col-c p-t-60">
+        <span class="txt1 p-b-17"> ¿Ya tienes cuenta? <br> </span>
+
+        <a routerLink="/auth/login" class="txt2"> Entra una aquí </a>
+      </div>
+    </div>
+  </form>
+</mat-card>

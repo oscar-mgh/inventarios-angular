@@ -1,0 +1,7 @@
+@if (!finishedAuthCheck()) {
+<h1 class="text-center my-5">Cargando...</h1>
+}
+
+@if (finishedAuthCheck()) {
+<router-outlet />
+}

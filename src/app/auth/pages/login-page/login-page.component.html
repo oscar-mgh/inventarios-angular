@@ -1,0 +1,39 @@
+<mat-card class="col-1 col-md-9 col-lg-6 mx-auto myCard">
+  <form class="p-4" [formGroup]="loginForm" (ngSubmit)="login()">
+    <h3 class="text-center fs-3 my-3"> Iniciar sesion </h3>
+
+    <div>
+      <mat-form-field class="w-100 mt-4">
+        <mat-label>Correo</mat-label>
+        <input matInput type="email" formControlName="email" placeholder="correo@email.com" />
+
+        @if (loginForm.controls['email'].getError('required')) {
+          <mat-error>Este campo es requerido</mat-error>
+          }
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field class="w-100 ">
+        <mat-label>Contraseña</mat-label>
+        <input matInput type="password" formControlName="password" />
+
+        @if (loginForm.controls['password'].getError('required')) {
+          <mat-error>Este campo es requerido</mat-error>
+          }
+      </mat-form-field>
+    </div>
+
+    <div class="d-flex justify-content-between align-items-center mt-3">
+      <div>
+        <span> ¿No tienes cuenta? <br> </span>
+
+        <a routerLink="/auth/register"> Crear una aquí </a>
+      </div>
+      <button mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid">
+        Iniciar
+      </button>
+    </div>
+
+  </form>
+</mat-card>

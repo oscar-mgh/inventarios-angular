@@ -1,0 +1,8 @@
+<div class="container">
+    @if (products().length !== 0) {
+    <shared-data-table />
+    } @else {
+    <h2 class="text-center my-5">Aun no se han agregado productos</h2>
+    <img class="box pt-5" src="../../../../assets/empty.png" alt="" width="220" height="220">
+    }
+</div>
